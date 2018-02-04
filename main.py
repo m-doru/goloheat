@@ -53,8 +53,8 @@ print("Processed the data")
 m = folium.Map([46.81, 8.22],tiles='stamentoner', zoom_start=6)
 print("Created the map")
 
-HeatMap(data['unified'], min_opacity=3, radius=15).add_to(m)
+HeatMap(data['unified'], min_opacity=1, radius=10).add_to(m)
 print("Created the heat layer")
 
-m.save('heatmap.html')
+m.save('goloheat.html')
 print("Saved the heatmap")
