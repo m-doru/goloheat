@@ -47,14 +47,18 @@ data['date'] = data.timestampMs.apply(lambda ms: datetime.datetime.fromtimestamp
 
 data['unified'] = list(zip(data['latitudeE7'], data['longitudeE7']))
 data['date'] = data.timestampMs.apply(lambda ms: datetime.datetime.fromtimestamp(ms))
+data = data.dropna(axis=0)
+
+assert data.isnull().any().all() == False, "Data must not have nulls"
 
 print("Processed the data")
 
 m = folium.Map([46.81, 8.22],tiles='stamentoner', zoom_start=6)
 print("Created the map")
 
-HeatMap(data['unified'], min_opacity=1, radius=10).add_to(m)
+# make sure unified column doesn't have nans
+_ = HeatMap(data['unified'], min_opacity=1, radius=10).add_to(m)
 print("Created the heat layer")
 
-m.save('goloheat.html')
+_ = m.save('goloheat.html')
 print("Saved the heatmap")
