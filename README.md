@@ -14,4 +14,4 @@ https://www.reddit.com/r/dataisbeautiful/comments/718wt7/heatmap_of_my_location_
 4. `source ./venv/bin/activate`
 5. `pip install -r requirements.txt`
 6. `python3 main.py --locationsfile path-to-json-file-from-extracted-archive`
-7. Open goloheat.html using an internet browser (tested on Chrome and Firefox)
+7. Open the created `goloheat.html` from current directory using an internet browser (tested on Chrome and Firefox)
